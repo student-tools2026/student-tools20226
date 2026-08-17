@@ -230,3 +230,20 @@ document.getElementById("searchBox").addEventListener("input", function() {
     });
 
 });
+// Search Tools
+const searchInput = document.querySelector('input[placeholder="Search tools..."]');
+const tools = document.querySelectorAll('.tool');
+
+searchInput.addEventListener('input', function () {
+    const searchText = this.value.toLowerCase();
+
+    tools.forEach(function (tool) {
+        const toolText = tool.innerText.toLowerCase();
+
+        if (toolText.includes(searchText)) {
+            tool.style.display = '';
+        } else {
+            tool.style.display = 'none';
+        }
+    });
+});
