@@ -222,3 +222,14 @@ nav h2 {
         padding: 20px 10px;
     }
 }
+/* Tool Card Hover Effect */
+
+.tool {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tool:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
