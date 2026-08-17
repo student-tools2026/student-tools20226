@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Tools</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<nav>
+    <h2>Student Tools</h2>
+
+    <input type="text" id="searchBox" placeholder="Search tools...">
+</nav>
+    <header>
+        <h1>Student Tools</h1>
+        <p>Useful tools for students</p>
+    </header>
+
+    <main>
+
+        <h2>Our Tools</h2>
+
+        <div class="tools">
+
+            <div class="tool">
+    <h3>Percentage Calculator</h3>
+
+    <input type="number" id="totalMarks" placeholder="Total Marks">
+
+    <input type="number" id="obtainedMarks" placeholder="Obtained Marks">
+
+    <button onclick="calculatePercentage()">Calculate</button>
+
+    <h3 id="result"></h3>
+</div>
+
+            <div class="tool">
+                <h3>CGPA Calculator</h3>
+                <input type="number" id="marks1" placeholder="Subject 1">
+<input type="number" id="marks2" placeholder="Subject 2">
+<input type="number" id="marks3" placeholder="Subject 3">
+<input type="number" id="marks4" placeholder="Subject 4">
+<input type="number" id="marks5" placeholder="Subject 5">
+
+<button onclick="calculateCGPA()">Calculate CGPA</button>
+
+<h3 id="cgpaResult"></h3>
+            </div>
+
+            <div class="tool">
+                <h3>Age Calculator</h3>
+               <input type="date" id="birthDate">
+
+<button onclick="calculateAge()">Calculate Age</button>
+
+<h3 id="ageResult"></h3>
+            </div>
+
+            <div class="tool">
+                <h3>EMI Calculator</h3>
+               <input type="number" id="loanAmount" placeholder="Loan Amount">
+
+<input type="number" id="interestRate" placeholder="Interest Rate (%)">
+
+<input type="number" id="loanYears" placeholder="Loan Duration (Years)">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<h3 id="emiResult"></h3>
+            </div>
+<div class="tool">
+    <h3>BMI Calculator</h3>
+
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <h3 id="bmiResult"></h3>
+</div>
+
+
+<div class="tool">
+    <h3>GST Calculator</h3>
+
+    <input type="number" id="gstAmount" placeholder="Amount">
+    <input type="number" id="gstRate" placeholder="GST Rate (%)">
+
+    <button onclick="calculateGST()">Calculate GST</button>
+
+    <h3 id="gstResult"></h3>
+</div>
+
+
+<div class="tool">
+    <h3>Discount Calculator</h3>
+
+    <input type="number" id="price" placeholder="Original Price">
+    <input type="number" id="discount" placeholder="Discount (%)">
+
+    <button onclick="calculateDiscount()">Calculate</button>
+
+    <h3 id="discountResult"></h3>
+</div>
+<div class="tool">
+    <h3>Simple Interest Calculator</h3>
+
+    <input type="number" id="siPrincipal" placeholder="Principal Amount">
+    <input type="number" id="siRate" placeholder="Interest Rate (%)">
+    <input type="number" id="siTime" placeholder="Time (Years)">
+
+    <button onclick="calculateSI()">Calculate</button>
+
+    <h3 id="siResult"></h3>
+</div>
+
+
+<div class="tool">
+    <h3>Compound Interest Calculator</h3>
+
+    <input type="number" id="ciPrincipal" placeholder="Principal Amount">
+    <input type="number" id="ciRate" placeholder="Interest Rate (%)">
+    <input type="number" id="ciTime" placeholder="Time (Years)">
+
+    <button onclick="calculateCI()">Calculate</button>
+
+    <h3 id="ciResult"></h3>
+</div>
+
+
+<div class="tool">
+    <h3>Tip Calculator</h3>
+
+    <input type="number" id="billAmount" placeholder="Bill Amount">
+    <input type="number" id="tipPercent" placeholder="Tip (%)">
+
+    <button onclick="calculateTip()">Calculate Tip</button>
+
+    <h3 id="tipResult"></h3>
+</div>
+        </div>
+
+    </main>
+
+   <footer>
+
+    <p>© 2026 Student Tools</p>
+
+    <div class="footer-links">
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+    </div>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>

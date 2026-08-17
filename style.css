@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f6fb;
+    color: #222;
+}
+
+/* Header */
+
+header {
+    background-color: #2563eb;
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 18px;
+}
+
+/* Main */
+
+main {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 0 20px;
+}
+
+main h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 35px;
+}
+
+/* Tools */
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.tool {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.tool h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* Input */
+
+.tool input {
+    width: 100%;
+    padding: 12px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+.tool input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Button */
+
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 7px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1747b0;
+}
+
+/* Result */
+
+.tool h3[id] {
+    margin-top: 18px;
+    color: #2563eb;
+}
+
+/* Footer */
+
+footer {
+    background-color: #111827;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .tools {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    main h2 {
+        font-size: 26px;
+    }
+
+    .tool {
+        padding: 25px 20px;
+    }
+}
+nav {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+nav h2 {
+    color: #2563eb;
+}
+
+#searchBox {
+    width: 250px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+#searchBox:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+@media (max-width: 600px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #searchBox {
+        width: 100%;
+    }
+}
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
