@@ -184,3 +184,41 @@ nav h2 {
 .footer-links a:hover {
     text-decoration: underline;
 }
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        padding: 20px 10px;
+    }
+
+    .tools {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tool {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 10px;
+    }
+}
