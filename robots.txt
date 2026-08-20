@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://student-tools2026.github.io/student-tools20226/sitemap.xml
