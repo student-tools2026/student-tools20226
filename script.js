@@ -213,13 +213,178 @@ function calculateSI() {
         " | Total: ₹" + total.toFixed(2);
 }
 function generateWorkout() {
+
     let level = document.getElementById("workoutLevel").value;
 
     if (level === "") {
-        document.getElementById("workoutResult").innerText =
-            "Please select workout level.";
+        document.getElementById("workoutResult").innerHTML =
+        "Please select workout level.";
         return;
     }
+
+    let workout = {
+
+        beginner: `
+        <h3>Monday – Chest + Triceps</h3>
+        <p>Bench Press – 3 sets × 8-12 reps</p>
+        <p>Incline Dumbbell Press – 3 × 10-12</p>
+        <p>Cable Fly – 3 × 12-15</p>
+        <p>Triceps Pushdown – 3 × 10-15</p>
+        <p>Overhead Triceps Extension – 3 × 10-15</p>
+
+        <h3>Tuesday – Back + Biceps</h3>
+        <p>Lat Pulldown – 3 × 8-12</p>
+        <p>Seated Cable Row – 3 × 10-12</p>
+        <p>Dumbbell Row – 3 × 10-12</p>
+        <p>Dumbbell Curl – 3 × 10-12</p>
+        <p>Hammer Curl – 3 × 10-15</p>
+
+        <h3>Wednesday – Legs + Abs</h3>
+        <p>Squat – 3 × 8-12</p>
+        <p>Leg Press – 3 × 10-12</p>
+        <p>Leg Curl – 3 × 12-15</p>
+        <p>Leg Extension – 3 × 12-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+        <p>Crunch – 3 × 15-20</p>
+        <p>Plank – 3 × 30-60 sec</p>
+
+        <h3>Thursday – Shoulders + Triceps</h3>
+        <p>Shoulder Press – 3 × 8-12</p>
+        <p>Lateral Raise – 3 × 12-15</p>
+        <p>Rear Delt Fly – 3 × 12-15</p>
+        <p>Triceps Pushdown – 3 × 10-15</p>
+        <p>Overhead Extension – 3 × 10-15</p>
+
+        <h3>Friday – Chest + Back</h3>
+        <p>Incline Bench Press – 3 × 8-12</p>
+        <p>Chest Fly – 3 × 12-15</p>
+        <p>Lat Pulldown – 3 × 8-12</p>
+        <p>Seated Row – 3 × 10-12</p>
+        <p>Face Pull – 3 × 12-15</p>
+
+        <h3>Saturday – Legs + Abs</h3>
+        <p>Squat – 3 × 8-12</p>
+        <p>Romanian Deadlift – 3 × 8-12</p>
+        <p>Leg Press – 3 × 10-12</p>
+        <p>Leg Curl – 3 × 12-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+        <p>Leg Raise – 3 × 12-15</p>
+        <p>Plank – 3 × 30-60 sec</p>
+
+        <h3>Sunday – Rest</h3>
+        <p>Rest, walking and recovery.</p>
+        `,
+
+        intermediate: `
+        <h3>Monday – Chest + Triceps</h3>
+        <p>Barbell Bench Press – 4 × 6-10</p>
+        <p>Incline Dumbbell Press – 3 × 8-12</p>
+        <p>Cable Fly – 3 × 12-15</p>
+        <p>Dips – 3 × 8-12</p>
+        <p>Triceps Pushdown – 3 × 10-15</p>
+
+        <h3>Tuesday – Back + Biceps</h3>
+        <p>Deadlift – 3 × 5-8</p>
+        <p>Lat Pulldown – 4 × 8-12</p>
+        <p>Barbell Row – 3 × 8-12</p>
+        <p>Seated Cable Row – 3 × 10-12</p>
+        <p>Barbell Curl – 3 × 8-12</p>
+        <p>Hammer Curl – 3 × 10-15</p>
+
+        <h3>Wednesday – Legs + Abs</h3>
+        <p>Squat – 4 × 6-10</p>
+        <p>Leg Press – 3 × 8-12</p>
+        <p>Romanian Deadlift – 3 × 8-12</p>
+        <p>Leg Curl – 3 × 10-15</p>
+        <p>Leg Extension – 3 × 10-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+        <p>Crunch – 3 × 15-20</p>
+
+        <h3>Thursday – Shoulders + Triceps</h3>
+        <p>Overhead Press – 4 × 6-10</p>
+        <p>Dumbbell Shoulder Press – 3 × 8-12</p>
+        <p>Lateral Raise – 4 × 12-15</p>
+        <p>Rear Delt Fly – 3 × 12-15</p>
+        <p>Skull Crushers – 3 × 8-12</p>
+        <p>Triceps Pushdown – 3 × 10-15</p>
+
+        <h3>Friday – Chest + Back + Arms</h3>
+        <p>Incline Bench Press – 3 × 8-12</p>
+        <p>Chest Fly – 3 × 12-15</p>
+        <p>Pull Ups / Lat Pulldown – 3 × 8-12</p>
+        <p>Barbell Row – 3 × 8-12</p>
+        <p>Dumbbell Curl – 3 × 10-12</p>
+        <p>Triceps Extension – 3 × 10-12</p>
+
+        <h3>Saturday – Legs + Abs</h3>
+        <p>Front Squat – 3 × 8-10</p>
+        <p>Leg Press – 3 × 10-12</p>
+        <p>Romanian Deadlift – 3 × 8-12</p>
+        <p>Leg Curl – 3 × 10-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+        <p>Hanging Leg Raise – 3 × 10-15</p>
+        <p>Plank – 3 × 45-60 sec</p>
+
+        <h3>Sunday – Rest</h3>
+        <p>Recovery and light walking.</p>
+        `,
+
+        advanced: `
+        <h3>Monday – Chest + Triceps</h3>
+        <p>Bench Press – 4 × 5-8</p>
+        <p>Incline Press – 4 × 8-10</p>
+        <p>Chest Fly – 3 × 10-15</p>
+        <p>Dips – 3 × 8-12</p>
+        <p>Triceps Pushdown – 4 × 10-15</p>
+
+        <h3>Tuesday – Back + Biceps</h3>
+        <p>Deadlift – 3 × 5-6</p>
+        <p>Pull Ups – 4 × 6-10</p>
+        <p>Barbell Row – 4 × 6-10</p>
+        <p>Seated Row – 3 × 10-12</p>
+        <p>Barbell Curl – 3 × 8-12</p>
+        <p>Hammer Curl – 3 × 10-12</p>
+
+        <h3>Wednesday – Legs</h3>
+        <p>Squat – 4 × 5-8</p>
+        <p>Leg Press – 4 × 8-12</p>
+        <p>Romanian Deadlift – 4 × 8-10</p>
+        <p>Leg Curl – 3 × 10-15</p>
+        <p>Leg Extension – 3 × 10-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+
+        <h3>Thursday – Shoulders + Abs</h3>
+        <p>Overhead Press – 4 × 6-10</p>
+        <p>Dumbbell Press – 3 × 8-12</p>
+        <p>Lateral Raise – 4 × 12-15</p>
+        <p>Rear Delt Fly – 4 × 12-15</p>
+        <p>Hanging Leg Raise – 3 × 10-15</p>
+        <p>Cable Crunch – 3 × 12-20</p>
+
+        <h3>Friday – Upper Body</h3>
+        <p>Bench Press – 3 × 6-10</p>
+        <p>Incline Dumbbell Press – 3 × 8-12</p>
+        <p>Pull Ups – 3 × 6-10</p>
+        <p>Barbell Row – 3 × 8-12</p>
+        <p>Lateral Raise – 3 × 12-15</p>
+        <p>Dumbbell Curl – 3 × 10-12</p>
+
+        <h3>Saturday – Lower Body + Abs</h3>
+        <p>Squat – 4 × 6-10</p>
+        <p>Romanian Deadlift – 3 × 8-12</p>
+        <p>Leg Press – 3 × 10-12</p>
+        <p>Leg Curl – 3 × 10-15</p>
+        <p>Calf Raise – 4 × 12-15</p>
+        <p>Hanging Leg Raise – 3 × 10-15</p>
+        <p>Plank – 3 × 60 sec</p>
+
+        <h3>Sunday – Rest</h3>
+        <p>Recovery and mobility work.</p>
+        `
+    };
+
+    document.getElementById("workoutResult").innerHTML = workout[level];
+}
 
     if (level === "beginner") {
         document.getElementById("workoutResult").innerText =
@@ -237,14 +402,170 @@ function generateWorkout() {
 
 
 function generateDiet() {
+
     let goal = document.getElementById("dietGoal").value;
 
     if (goal === "") {
-        document.getElementById("dietResult").innerText =
+        document.getElementById("dietResult").innerHTML =
             "Please select your goal.";
         return;
     }
 
+    let diet = "";
+
+    if (goal === "muscle") {
+
+        diet = `
+        <h3>🏋️ Muscle Gain Diet – Monday to Saturday</h3>
+
+        <p><b>Daily Target:</b> 2500–2800 kcal | Protein: 130–150 g</p>
+
+        <h4>Monday</h4>
+        <p>🌅 Breakfast: 80g oats + 300ml milk + 1 banana + 10g almonds</p>
+        <p>🍎 Mid-Morning: 2 boiled eggs + 1 fruit</p>
+        <p>🍛 Lunch: 150g cooked rice + 150g chicken/paneer + dal + vegetables</p>
+        <p>🥤 Pre-Workout: 1 banana + black coffee</p>
+        <p>🏋️ Post-Workout: 1 scoop whey + 1 banana</p>
+        <p>🌙 Dinner: 4 roti + 150g paneer/chicken + vegetables + curd</p>
+
+        <h4>Tuesday</h4>
+        <p>🌅 Breakfast: 4 eggs + 4 bread slices + 250ml milk</p>
+        <p>🍎 Mid-Morning: 1 banana + 20g peanuts</p>
+        <p>🍛 Lunch: 4 roti + 150g paneer/chicken + dal + salad</p>
+        <p>🥤 Pre-Workout: Banana + coffee</p>
+        <p>🏋️ Post-Workout: Whey protein + milk</p>
+        <p>🌙 Dinner: Rice + dal + 150g paneer/chicken + vegetables</p>
+
+        <h4>Wednesday</h4>
+        <p>🌅 Breakfast: 80g oats + milk + banana + 10g cashews</p>
+        <p>🍎 Mid-Morning: 2 eggs + fruit</p>
+        <p>🍛 Lunch: Rice + dal + 150g chicken/paneer + vegetables</p>
+        <p>🥤 Pre-Workout: Banana + black coffee</p>
+        <p>🏋️ Post-Workout: 1 scoop whey</p>
+        <p>🌙 Dinner: 4 roti + paneer/chicken + curd + salad</p>
+
+        <h4>Thursday</h4>
+        <p>🌅 Breakfast: 4 eggs + 4 bread slices + milk</p>
+        <p>🍎 Mid-Morning: Banana + 20g peanuts</p>
+        <p>🍛 Lunch: 4 roti + dal + 150g paneer/chicken + vegetables</p>
+        <p>🥤 Pre-Workout: Banana</p>
+        <p>🏋️ Post-Workout: Whey protein + banana</p>
+        <p>🌙 Dinner: Rice + dal + paneer/chicken + salad</p>
+
+        <h4>Friday</h4>
+        <p>🌅 Breakfast: Oats + milk + banana + almonds</p>
+        <p>🍎 Mid-Morning: 2 eggs + fruit</p>
+        <p>🍛 Lunch: Rice + dal + 150g chicken/paneer + vegetables</p>
+        <p>🥤 Pre-Workout: Banana + coffee</p>
+        <p>🏋️ Post-Workout: Whey protein</p>
+        <p>🌙 Dinner: 4 roti + paneer/chicken + curd</p>
+
+        <h4>Saturday</h4>
+        <p>🌅 Breakfast: 4 eggs + 4 bread slices + milk + banana</p>
+        <p>🍎 Mid-Morning: Fruit + peanuts</p>
+        <p>🍛 Lunch: Rice + dal + 150g paneer/chicken + vegetables</p>
+        <p>🥤 Pre-Workout: Banana</p>
+        <p>🏋️ Post-Workout: Whey protein</p>
+        <p>🌙 Dinner: 4 roti + paneer/chicken + vegetables + curd</p>
+
+        <p><b>💧 Water:</b> Approximately 2.5–3.5 litres/day.</p>
+        `;
+
+    } else if (goal === "fatloss") {
+
+        diet = `
+        <h3>🔥 Fat Loss Diet – Monday to Saturday</h3>
+
+        <p><b>Daily Target:</b> Start around 2000–2200 kcal | Protein: 120–140 g</p>
+
+        <h4>Monday</h4>
+        <p>Breakfast: 3 eggs + oats + fruit</p>
+        <p>Lunch: 2–3 roti + chicken/paneer + dal + salad</p>
+        <p>Snack: Curd + fruit</p>
+        <p>Dinner: Paneer/chicken + vegetables + 2 roti</p>
+
+        <h4>Tuesday</h4>
+        <p>Breakfast: Oats + milk + banana</p>
+        <p>Lunch: Rice + dal + chicken/paneer + salad</p>
+        <p>Snack: 2 eggs + fruit</p>
+        <p>Dinner: 2–3 roti + vegetables + paneer/chicken</p>
+
+        <h4>Wednesday</h4>
+        <p>Breakfast: 3 eggs + 2 bread slices + fruit</p>
+        <p>Lunch: 3 roti + dal + chicken/paneer + vegetables</p>
+        <p>Snack: Curd + fruit</p>
+        <p>Dinner: Rice + vegetables + paneer/chicken</p>
+
+        <h4>Thursday</h4>
+        <p>Breakfast: Oats + milk + fruit</p>
+        <p>Lunch: Rice + dal + chicken/paneer + salad</p>
+        <p>Snack: 2 eggs + fruit</p>
+        <p>Dinner: 2–3 roti + vegetables + paneer</p>
+
+        <h4>Friday</h4>
+        <p>Breakfast: 3 eggs + oats</p>
+        <p>Lunch: 3 roti + dal + chicken/paneer + salad</p>
+        <p>Snack: Curd + fruit</p>
+        <p>Dinner: Chicken/paneer + vegetables + 2 roti</p>
+
+        <h4>Saturday</h4>
+        <p>Breakfast: Oats + milk + banana</p>
+        <p>Lunch: Rice + dal + chicken/paneer + salad</p>
+        <p>Snack: Eggs + fruit</p>
+        <p>Dinner: 2–3 roti + paneer/chicken + vegetables</p>
+
+        <p><b>💧 Water:</b> Approximately 2.5–3.5 litres/day.</p>
+        `;
+
+    } else {
+
+        diet = `
+        <h3>⚖️ Maintenance Diet – Monday to Saturday</h3>
+
+        <p><b>Daily Target:</b> Calories depend on your activity level | Protein: approximately 1.6–2.0 g/kg body weight</p>
+
+        <h4>Monday</h4>
+        <p>Breakfast: Oats + milk + banana + eggs</p>
+        <p>Lunch: Rice + dal + paneer/chicken + vegetables</p>
+        <p>Snack: Fruit + curd</p>
+        <p>Dinner: Roti + paneer/chicken + vegetables</p>
+
+        <h4>Tuesday</h4>
+        <p>Breakfast: Eggs + bread + milk + fruit</p>
+        <p>Lunch: Roti + dal + paneer/chicken + salad</p>
+        <p>Snack: Banana + peanuts</p>
+        <p>Dinner: Rice + dal + vegetables + paneer/chicken</p>
+
+        <h4>Wednesday</h4>
+        <p>Breakfast: Oats + milk + fruit + eggs</p>
+        <p>Lunch: Rice + dal + chicken/paneer + vegetables</p>
+        <p>Snack: Curd + fruit</p>
+        <p>Dinner: Roti + paneer/chicken + salad</p>
+
+        <h4>Thursday</h4>
+        <p>Breakfast: Eggs + bread + milk</p>
+        <p>Lunch: Roti + dal + paneer/chicken + vegetables</p>
+        <p>Snack: Fruit + peanuts</p>
+        <p>Dinner: Rice + dal + paneer/chicken</p>
+
+        <h4>Friday</h4>
+        <p>Breakfast: Oats + milk + banana + eggs</p>
+        <p>Lunch: Rice + dal + paneer/chicken + salad</p>
+        <p>Snack: Curd + fruit</p>
+        <p>Dinner: Roti + paneer/chicken + vegetables</p>
+
+        <h4>Saturday</h4>
+        <p>Breakfast: Eggs + bread + milk + banana</p>
+        <p>Lunch: Rice + dal + paneer/chicken + vegetables</p>
+        <p>Snack: Fruit + curd</p>
+        <p>Dinner: Roti + paneer/chicken + salad</p>
+
+        <p><b>💧 Water:</b> Approximately 2.5–3.5 litres/day.</p>
+        `;
+    }
+
+    document.getElementById("dietResult").innerHTML = diet;
+}
     if (goal === "muscle") {
         document.getElementById("dietResult").innerText =
             "Muscle Gain: High Protein Diet with Eggs, Paneer, Dal, Rice & Milk.";
