@@ -386,18 +386,7 @@ function generateWorkout() {
     document.getElementById("workoutResult").innerHTML = workout[level];
 }
 
-    if (level === "beginner") {
-        document.getElementById("workoutResult").innerText =
-            "Beginner: Full Body Workout - 3 Days a Week.";
-    }
-    else if (level === "intermediate") {
-        document.getElementById("workoutResult").innerText =
-            "Intermediate: Chest, Back, Legs, Shoulders & Arms - 5 Days.";
-    }
-    else {
-        document.getElementById("workoutResult").innerText =
-            "Advanced: Push, Pull, Legs + Cardio & Core - 6 Days.";
-    }
+    
 }
 
 
