@@ -582,20 +582,67 @@ function generateDiet() {
 
 
 function calculateCalories() {
+
     let weight = Number(document.getElementById("calorieWeight").value);
     let height = Number(document.getElementById("calorieHeight").value);
     let age = Number(document.getElementById("calorieAge").value);
 
-    if (weight <= 0 || height <= 0 || age <= 0) {
-        document.getElementById("calorieResult").innerText =
-            "Please enter valid details.";
+    let sex = document.getElementById("calorieSex").value;
+    let activity = document.getElementById("activityLevel").value;
+    let goal = document.getElementById("calorieGoal").value;
+
+    if (weight <= 0 || height <= 0 || age <= 0 ||
+        sex === "" || activity === "" || goal === "") {
+
+        document.getElementById("calorieResult").innerHTML =
+            "Please enter all details correctly.";
+
         return;
     }
 
-    let calories = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    // Mifflin-St Jeor BMR
+    let bmr;
 
-    document.getElementById("calorieResult").innerText =
-        "Estimated Daily Calories: " + calories.toFixed(0) + " kcal";
+    if (sex === "male") {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+    }
+
+    // Activity multiplier
+    let multiplier;
+
+    if (activity === "sedentary") {
+        multiplier = 1.2;
+    } else if (activity === "light") {
+        multiplier = 1.375;
+    } else if (activity === "moderate") {
+        multiplier = 1.55;
+    } else if (activity === "active") {
+        multiplier = 1.725;
+    } else {
+        multiplier = 1.9;
+    }
+
+    let maintenanceCalories = bmr * multiplier;
+
+    // Goal adjustment
+    let calories;
+
+    if (goal === "muscle") {
+        calories = maintenanceCalories + 250;
+    } else if (goal === "fatloss") {
+        calories = maintenanceCalories - 300;
+    } else {
+        calories = maintenanceCalories;
+    }
+
+    let protein = weight * 1.6;
+
+    document.getElementById("calorieResult").innerHTML =
+        "<b>Daily Calories: " + Math.round(calories) + " kcal</b><br>" +
+        "Maintenance: " + Math.round(maintenanceCalories) + " kcal<br>" +
+        "Protein Target: " + Math.round(protein) + " g/day";
 }
 
 
