@@ -566,20 +566,7 @@ function generateDiet() {
 
     document.getElementById("dietResult").innerHTML = diet;
 }
-    if (goal === "muscle") {
-        document.getElementById("dietResult").innerText =
-            "Muscle Gain: High Protein Diet with Eggs, Paneer, Dal, Rice & Milk.";
-    }
-    else if (goal === "fatloss") {
-        document.getElementById("dietResult").innerText =
-            "Fat Loss: Balanced Diet with Protein, Vegetables & Controlled Calories.";
-    }
-    else {
-        document.getElementById("dietResult").innerText =
-            "Maintain Weight: Balanced Protein, Carbs & Healthy Fats.";
-    }
-}
-
+    
 
 function calculateCalories() {
 
