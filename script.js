@@ -212,6 +212,86 @@ function calculateSI() {
         "Interest: ₹" + interest.toFixed(2) +
         " | Total: ₹" + total.toFixed(2);
 }
+function generateWorkout() {
+    let level = document.getElementById("workoutLevel").value;
+
+    if (level === "") {
+        document.getElementById("workoutResult").innerText =
+            "Please select workout level.";
+        return;
+    }
+
+    if (level === "beginner") {
+        document.getElementById("workoutResult").innerText =
+            "Beginner: Full Body Workout - 3 Days a Week.";
+    }
+    else if (level === "intermediate") {
+        document.getElementById("workoutResult").innerText =
+            "Intermediate: Chest, Back, Legs, Shoulders & Arms - 5 Days.";
+    }
+    else {
+        document.getElementById("workoutResult").innerText =
+            "Advanced: Push, Pull, Legs + Cardio & Core - 6 Days.";
+    }
+}
+
+
+function generateDiet() {
+    let goal = document.getElementById("dietGoal").value;
+
+    if (goal === "") {
+        document.getElementById("dietResult").innerText =
+            "Please select your goal.";
+        return;
+    }
+
+    if (goal === "muscle") {
+        document.getElementById("dietResult").innerText =
+            "Muscle Gain: High Protein Diet with Eggs, Paneer, Dal, Rice & Milk.";
+    }
+    else if (goal === "fatloss") {
+        document.getElementById("dietResult").innerText =
+            "Fat Loss: Balanced Diet with Protein, Vegetables & Controlled Calories.";
+    }
+    else {
+        document.getElementById("dietResult").innerText =
+            "Maintain Weight: Balanced Protein, Carbs & Healthy Fats.";
+    }
+}
+
+
+function calculateCalories() {
+    let weight = Number(document.getElementById("calorieWeight").value);
+    let height = Number(document.getElementById("calorieHeight").value);
+    let age = Number(document.getElementById("calorieAge").value);
+
+    if (weight <= 0 || height <= 0 || age <= 0) {
+        document.getElementById("calorieResult").innerText =
+            "Please enter valid details.";
+        return;
+    }
+
+    let calories = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+
+    document.getElementById("calorieResult").innerText =
+        "Estimated Daily Calories: " + calories.toFixed(0) + " kcal";
+}
+
+
+function calculateProtein() {
+    let weight = Number(document.getElementById("proteinWeight").value);
+
+    if (weight <= 0) {
+        document.getElementById("proteinResult").innerText =
+            "Please enter valid weight.";
+        return;
+    }
+
+    let protein = weight * 1.6;
+
+    document.getElementById("proteinResult").innerText =
+        "Daily Protein: " + protein.toFixed(0) + " g";
+}
 document.getElementById("searchBox").addEventListener("input", function() {
 
     let search = this.value.toLowerCase();
