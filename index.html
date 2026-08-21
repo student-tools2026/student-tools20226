@@ -152,7 +152,71 @@
     <h3 id="tipResult"></h3>
 </div>
         </div>
+<!-- FITNESS & GYM TOOLS -->
 
+<h2>Fitness & Gym Tools</h2>
+
+<div class="tools">
+
+    <!-- Workout Plan -->
+    <div class="tool">
+        <h3>Weekly Workout Plan</h3>
+
+        <select id="workoutLevel">
+            <option value="">Select Level</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+        </select>
+
+        <button onclick="generateWorkout()">Generate Plan</button>
+
+        <h3 id="workoutResult"></h3>
+    </div>
+
+    <!-- Diet Plan -->
+    <div class="tool">
+        <h3>Weekly Diet Plan</h3>
+
+        <select id="dietGoal">
+            <option value="">Select Goal</option>
+            <option value="muscle">Muscle Gain</option>
+            <option value="fatloss">Fat Loss</option>
+            <option value="maintain">Maintain Weight</option>
+        </select>
+
+        <button onclick="generateDiet()">Generate Diet Plan</button>
+
+        <h3 id="dietResult"></h3>
+    </div>
+
+    <!-- Calorie Calculator -->
+    <div class="tool">
+        <h3>Daily Calorie Calculator</h3>
+
+        <input type="number" id="calorieWeight" placeholder="Weight (kg)">
+        <input type="number" id="calorieHeight" placeholder="Height (cm)">
+        <input type="number" id="calorieAge" placeholder="Age">
+
+        <button onclick="calculateCalories()">Calculate Calories</button>
+
+        <h3 id="calorieResult"></h3>
+    </div>
+
+    <!-- Protein Calculator -->
+    <div class="tool">
+        <h3>Daily Protein Calculator</h3>
+
+        <input type="number" id="proteinWeight" placeholder="Weight (kg)">
+
+        <button onclick="calculateProtein()">Calculate Protein</button>
+
+        <h3 id="proteinResult"></h3>
+    </div>
+
+</div>
+
+<!-- END FITNESS & GYM TOOLS -->
     </main>
 
    <footer>
