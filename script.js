@@ -385,11 +385,6 @@ function generateWorkout() {
 
     document.getElementById("workoutResult").innerHTML = workout[level];
 }
-
-    
-}
-
-
 function generateDiet() {
 
     let goal = document.getElementById("dietGoal").value;
